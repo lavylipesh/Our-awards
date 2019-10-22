@@ -10,4 +10,10 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username}Profile'
 
+class Update(models.Model):
+    bio = models.TextField(default = "")
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='bio')
+    
+    def __str__(self):
+        return self.bio
 

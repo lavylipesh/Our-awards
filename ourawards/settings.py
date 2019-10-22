@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'awards.apps.AwardsConfig',
     'bootstrap4',
     'bootstrap3',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

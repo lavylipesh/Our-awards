@@ -9,5 +9,5 @@ def index(request):
    
 def profile(request):
     current_user=request.user   
-    image=Image.objects.filter(profile_id=current_user.id)
-    return render(request,'profile.html',{'image':image})
+    profile=Profile.objects.filter(id=current_user.id)
+    return render(request,'profile.html',{'profile':profile})
