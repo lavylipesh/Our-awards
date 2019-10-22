@@ -20,11 +20,12 @@ class Profile(models.Model):
         
 class Project(models.Model):
     title = models.CharField(max_length=100)
-    details = models.TextField()
+    description = models.TextField()
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     image = models.ImageField(upload_to='images/',blank=True)
-    link = models.CharField(max_length=100)
-   
+    link = models.URLField(max_length=100)
+    def __str__(self):
+        return f'{self.title}'
  
 
 
