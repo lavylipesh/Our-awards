@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Profile,Project
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  AwardMerch
+from .serializer import MerchSerializer
 #from .forms import UpdateForm
 
 @login_required(login_url='/accounts/login/')
@@ -28,3 +32,8 @@ def update(request):
         form = UpdateForm()
         return render(request,'profile.html',{'form':form})
 
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_merch = AwardMerch.objects.all()
+        serializers = MerchSerializer(all_merch, many=True)
+        return Response(serializers.data)
