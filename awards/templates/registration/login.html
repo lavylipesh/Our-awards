@@ -18,9 +18,11 @@
           <form  action="/accounts/login/" method="post">
             {% csrf_token %}
             {% bootstrap_form form%}
-
+       
             <div class="form-group">
               <input type="submit" class="btn btn-primary btn-sm" value="Login">
+                    
+            <a class='btn btn-success' href="/accounts/register">Register</a>
             </div>
 
             <input type="hidden" name="next" value="{{next}}">
@@ -35,6 +37,7 @@
     
     <div class="col-md-4"></div>
   </div>
+ 
 </div>
 
 {% endblock %}
