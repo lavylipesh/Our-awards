@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile,Project
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import  AwardMerch
 from .serializer import MerchSerializer
 #from .forms import UpdateForm
 
@@ -32,8 +31,8 @@ def update(request):
         form = UpdateForm()
         return render(request,'profile.html',{'form':form})
 
-class MerchList(APIView):
+class  ProjectList(APIView):
     def get(self, request, format=None):
-        all_merch = AwardMerch.objects.all()
+        all_merch = Project.objects.all()
         serializers = MerchSerializer(all_merch, many=True)
         return Response(serializers.data)

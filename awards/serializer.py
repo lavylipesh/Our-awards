@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import AwardMerch
+from .models import Project
 
 class MerchSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AwardMerch
-        fields = ('name', 'description', 'price')
+        model = Project
+        fields = ('title', 'description','user','image','link','')
