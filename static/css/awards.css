@@ -5,10 +5,13 @@ h1{
     
 }
 #yeay{
-    background-color: black;
+    background-color: rgb(40, 43, 51);
     background-size: cover;
     height:580px;
-    width: 1350px;
+    width: 1280px;
     background-repeat: no-repeat;
 
+}
+nav{
+    position: sticky;
 }
