@@ -33,7 +33,7 @@ def update(request):
             return redirect('profile')
     else:
         form = UpdateForm()
-        return render(request,'update.html',{'form':form})
+        return render(request,'profile.html',{'form':form})
 
 class  ProjectList(APIView):
     def get(self, request, format=None):
