@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 <div id="yeay">
-<h1 class="text-center"> WELCOME TO AWWARDS</h1>
+  <h1 class="text-center"></h1>
 </div>
-{% for project in projects %} 
-<div class="card-columns">
-    <div class="card ">
-      <div class="card-body text-center">
-          <img class="card-img-top" src="{{project.image.url}}" alt="Card image" height="300vh">
-         
-        <h4 class="card-title">{{project.title}}</h4>
-       
-        <p class="card-text">{{project.description}}</p>
-        <p class="card-text">Project by:{{project.editor}}</p>
-        <a href="{{project.link}}" class="btn btn-primary">View project</a>
+
+<div class="container-fluid">
+  <br>
+  <div class="row">
+      {% for project in projects %}
+      <div class="col-md-4">
+          <div class="card">
+              <img class="card-img-top" height="400px" src="{{project.image.url}}" alt="Card image cap">
+              <div class="card-body">
+                  <p class="card-text"><strong>{{project.title}}</strong>:
+                      {{project.description |truncatechars_html:170}}</p>
+                  <p class="card-text"><strong>By</strong>:{{project.editor}} </p>
+                  <a href="{{project.link}}" target="_blank" class="btn btn-primary">Live site</a>
+              </div>
+          </div>
       </div>
-    </div>
-  {% endfor %}
+      {% endfor %}
+  </div>
+
+</div>
 {% endblock content %}
