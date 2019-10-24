@@ -5,3 +5,8 @@ from .models import *
  #   class Meta:
        # model = Update
         #fields = ['update']
+
+class ProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        fields=['title','description','link']
