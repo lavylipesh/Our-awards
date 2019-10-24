@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from .serializer import MerchSerializer
 from rest_framework import status
 from .permissions import IsAdminOrReadOnly
-from .forms import ProjectForm
+from .forms import ProjectForm,UpdateForm
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -25,14 +25,15 @@ def update(request):
     if request.method == 'POST':
         form = UpdateForm(request.POST,request.FILES)
         if form.is_valid():
-            title=form.cleaned_data['title']
-            image=form.cleaned_data['image'] 
-            saveProfile = Profile(image=image)
+            user=form.cleaned_data['user']
+            profile_pic=form.cleaned_data['profile_pic'] 
+            bio = form.cleaned_data['bio']
+            saveProfile = Profile(user=user,profile_pic=profile_pic,bio=bio)
             saveProfile.save()
             return redirect('profile')
     else:
         form = UpdateForm()
-        return render(request,'profile.html',{'form':form})
+        return render(request,'update.html',{'form':form})
 
 class  ProjectList(APIView):
     def get(self, request, format=None):
