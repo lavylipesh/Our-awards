@@ -62,3 +62,21 @@ class ProjectDescription(APIView):
         merch = self.get_merch(pk)
         serializers = MerchSerializer(merch)
         return Response(serializers.data)
+
+@login_required(login_url='/accounts/login/')
+def upload(request):
+    
+    if request.method == 'POST':
+        form = ProjectForm(request.POST,request.FILES)
+        if form.is_valid():
+            
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['description']
+            link = form.cleaned_data['link']
+            user = request.user
+            saveProject = Project(title=title,description=description,lin=link,profile=user)
+            saveProject.save()
+            return redirect('index')
+    else:
+        form = ProjectForm()
+        return render(request,'project.html',{'form':form})
