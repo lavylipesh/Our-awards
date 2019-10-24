@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Profile,Project
 from rest_framework.response import Response
@@ -20,20 +20,15 @@ def profile(request):
     return render(request,'profile.html',{'profile':profile})
 
 @login_required(login_url='/accounts/login/')
-def update(request):
-    
+def update(request,format=None):
     if request.method == 'POST':
-        form = UpdateForm(request.POST,request.FILES)
-        if form.is_valid():
-            user=form.cleaned_data['user']
-            profile_pic=form.cleaned_data['profile_pic'] 
-            bio = form.cleaned_data['bio']
-            saveProfile = Profile(user=user,profile_pic=profile_pic,bio=bio)
-            saveProfile.save()
+        form = UpdateForm(request.POST,request.FILES,instance=request.user.profile)
+        if form.is_valid():      
+            form.save()            
             return redirect('profile')
     else:
-        form = UpdateForm()
-        return render(request,'profile.html',{'form':form})
+        form = UpdateForm(instance=request.user.profile)
+    return render(request,'update.html',{'form':form})
 
 class  ProjectList(APIView):
     def get(self, request, format=None):

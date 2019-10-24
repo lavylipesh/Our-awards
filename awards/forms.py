@@ -1,10 +1,11 @@
 from django.forms import ModelForm
 from .models import *
+from django import forms
 
 class UpdateForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['user','profile_pic','bio']
+        fields = ['name','profile_pic','bio']
 
 class ProjectForm(ModelForm):
     class Meta:
