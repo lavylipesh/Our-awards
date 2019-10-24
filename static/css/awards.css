@@ -1,11 +1,18 @@
+h1{
+    color:rgb(248, 244, 248);
+    font-size:70px; 
+    padding-top:10%;
+    
+}
 #yeay{
-    background-color: rgb(40, 43, 51);
+    background-image:url("/static/images/martin-shreder-5Xwaj9gaR0g-unsplash.jpg");
     background-size: cover;
-    height:580px;
+    height:680px;
     width: 1280px;
     background-repeat: no-repeat;
 
 }
-nav{
-    position: sticky;
+#navbar{
+    overflow: hidden;
+    background-color: #333;
 }
