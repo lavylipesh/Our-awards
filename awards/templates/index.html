@@ -15,7 +15,7 @@
               <div class="card-body">
                   <p class="card-text"><strong>{{project.title}}</strong>:
                       {{project.description |truncatechars_html:170}}</p>
-                  <p class="card-text"><strong>By</strong>:{{project.editor}} </p>
+                  <p class="card-text"><strong>By</strong>:{{user.username}} </p>
                   <a href="{{project.link}}" target="_blank" class="btn btn-primary">Live site</a>
               </div>
           </div>
