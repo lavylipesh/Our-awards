@@ -34,8 +34,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'awards.apps.AwardsConfig',
     'bootstrap4',
-    'bootstrap3',
-    'rest_framework.authtoken',
+    'bootstrap3',    
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -133,8 +132,3 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    )
-}

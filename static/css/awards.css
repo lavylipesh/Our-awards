@@ -1,15 +1,17 @@
 h1{
-    color:rgb(248, 244, 248);
-    font-size:70px; 
-    padding-top:10%;
+    color:rgb(241, 238, 241);
+    font-size:80px; 
+    padding-top:20%;
+    font-weight:900;
     
 }
 #yeay{
-    background-image:url("/static/images/martin-shreder-5Xwaj9gaR0g-unsplash.jpg");
+    background-image:url("/static/images/toa-heftiba-09SxeOdtlPE-unsplash.jpg");
     background-size: cover;
     height:680px;
     width: 1280px;
     background-repeat: no-repeat;
+    font-weight: 900;
 
 }
 #navbar{
