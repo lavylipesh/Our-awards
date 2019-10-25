@@ -13,6 +13,7 @@
           <div class="card">
               <img class="card-img-top" height="400px" src="{{project.image.url}}" alt="Card image cap">           
               <div class="card-body">
+                  <div class="p">{{project.date}}</div>
                   <p class="card-text"><strong>{{project.title}}</strong>:
                       {{project.description |truncatechars_html:170}}</p>
                   <p class="card-text"><strong>By</strong>:{{user.username}} </p>

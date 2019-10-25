@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Profile(models.Model):
@@ -18,6 +19,7 @@ class Project(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     image = models.ImageField(upload_to='images/',blank=True)
     link = models.URLField(max_length=100)
+    date=models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f'{self.title}'
