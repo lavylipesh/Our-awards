@@ -51,3 +51,20 @@ def upload(request):
     else:
         form = ProjectForm()
     return render(request,'project.html',{'form':form})
+
+
+def comment(request,pk):
+    
+    if request.method == 'POST':
+        form = MyCommentForm(request.POST)
+        if form.is_valid():
+            image = Image.objects.get(pk=pk)
+            user = request.user
+            comment = form.save(commit=False)
+            comment.image = image
+            comment.user = user
+            comment.save()
+            return redirect('index')
+    else:
+        print("error")
+        return redirect('index')
