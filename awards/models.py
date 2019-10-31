@@ -20,6 +20,8 @@ class Project(models.Model):
     image = models.ImageField(upload_to='images/',blank=True)
     link = models.URLField(max_length=100)
     date=models.DateTimeField(default=timezone.now)
+    comments = models.CharField(max_length = 100)
+
 
     def __str__(self):
         return f'{self.title}'
@@ -28,4 +30,10 @@ class Project(models.Model):
     def save_project(self):
         self.save()
  
-
+class CommentForm(models.Model):
+    comment = models.CharField(max_length=250)
+    image = models.ForeignKey(Project,on_delete=models.CASCADE,related_name='comment')
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='comment')
+    
+    def __str__(self):
+        return self.comment

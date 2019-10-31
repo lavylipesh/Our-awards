@@ -8,6 +8,7 @@ urlpatterns=[
       url(r'^profile/$',views.profile,name='profile') ,
       url(r'^update/$',views.update,name='update') ,
       url(r'^upload/$',views.upload,name='upload'),
+      url(r'^review/$',views.review,name='review'),
       url(r'^api/merch/$', views.ProjectList.as_view())
 ]
 if settings.DEBUG:

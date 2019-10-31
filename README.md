@@ -4,7 +4,8 @@
 [Lilibeth Langat](https://github.com/lavylipesh/Our-Awards)
 # Description
 This is a Python application about Awards where we are able to appreciate all the work that we have done as developers. 
-
+# Screenshot
+ <img src="https://github.com/lavylipesh/Our-awards/blob/master/static/images/awardscreenshot.png" width="1000">
 
 # Installation Instruction
 * install pip

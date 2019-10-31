@@ -11,3 +11,8 @@ class ProjectForm(ModelForm):
     class Meta:
         model = Project
         fields=['title','editor','description','link','image']
+
+class MyCommentForm(ModelForm):
+    class Meta:
+        model = CommentForm
+        fields = ['comment']

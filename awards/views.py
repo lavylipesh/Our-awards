@@ -1,16 +1,19 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .models import Profile,Project
+from .models import Profile,Project,CommentForm
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import MerchSerializer
-from .forms import ProjectForm,UpdateForm
+from .forms import ProjectForm,UpdateForm,MyCommentForm
 
 @login_required(login_url='/accounts/login/')
 def index(request):
     projects = Project.objects.all()
-    return render(request,'index.html',{'projects':projects})
+    form = MyCommentForm()
+    comment = CommentForm.objects.all()
+
+    return render(request,'index.html',{'MyCommentForm':form,'projects':projects})
    
 def profile(request):
     current_user=request.user   
@@ -68,3 +71,6 @@ def comment(request,pk):
     else:
         print("error")
         return redirect('index')
+
+def review(request):
+    pass
